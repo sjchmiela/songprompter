@@ -1,29 +1,14 @@
-<h1>Listing songs</h1>
+<% content_for :title do %>Lista piosenek<% end %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Text</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @songs.each do |song| %>
-    <tr>
-      <td><%= song.name %></td>
-      <td><%= song.text %></td>
-      <td><%= link_to 'Show', song %></td>
-      <td><%= link_to 'Edit', edit_song_path(song) %></td>
-      <td><%= link_to 'Destroy', song, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br />
-
-<%= link_to 'New Song', new_song_path %>
+<a href="<%= new_event_path %>" class="card song-desc new-event">
+  <div class="song">
+    <h2>Nowa piosenka</h2>
+  </div>
+</a>
+<% songs.each do |song| %>
+<a href="<%= song_path(song) %>" class="card song-desc">
+  <div class="song">
+    <h2><%= song.name %></h2>
+  </div>
+</a>
+<% end %>

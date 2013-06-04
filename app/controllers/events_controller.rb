@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
   # before_action :set_event, only: [:show, :edit, :update, :destroy]
   expose(:event, attributes: :event_params)
-  expose(:events)
+  expose(:events) { Event.includes(:songs)}
   expose(:songs) { event.songs }
   # GET /events
   # GET /events.json
@@ -56,6 +56,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:name)
+      params.require(:event).permit(:name, :date)
     end
 end

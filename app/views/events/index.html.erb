@@ -1,27 +1,20 @@
-<h1>Listing events</h1>
+<% content_for :title do %>Lista zestawów<% end %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @events.each do |event| %>
-    <tr>
-      <td><%= event.name %></td>
-      <td><%= link_to 'Show', event %></td>
-      <td><%= link_to 'Edit', edit_event_path(event) %></td>
-      <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
+<a href="<%= new_event_path %>" class="card event-desc new-event">
+  <div class="event">
+    <h2>Nowe wydarzenie</h2>
+  </div>
+</a>
+<% events.each do |event| %>
+<a href="<%= event_path(event) %>" class="card event-desc">
+  <div class="event">
+    <h2><%= event.name %><% if event.date %><span><%= event.date %></span><% end %></h2>
+    <% if event.songs.any? %><ol>
+      <% event.songs.each do |song| %>
+      <li><%= song.name %></li>
+      <% end %>
+    </ol>
     <% end %>
-  </tbody>
-</table>
-
-<br />
-
-<%= link_to 'New Event', new_event_path %>
+  </div>
+</a>
+<% end %>

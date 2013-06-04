@@ -1,0 +1,26 @@
+body {
+  font-family: 'Helvetica';
+  text-rendering:optimizeLegibility;
+}
+
+header h1 {
+  font-size: 1.618rem;
+  margin: 0;
+  padding-right: 9rem;
+}
+
+a { text-decoration: none; }
+a:visited { color: inherit;}
+a.event {
+  color: #00aacc;
+  &:hover {
+    border-bottom: 1px solid #00aacc;
+  }
+}
+
+a.song {
+  color: #d6009e;
+  &:hover {
+    border-bottom: 1px solid #d6009e;
+  }
+}
