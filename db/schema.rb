@@ -22,7 +22,6 @@ ActiveRecord::Schema.define(version: 20130604124907) do
   create_table "events_songs", id: false, force: true do |t|
     t.integer "event_id"
     t.integer "song_id"
-    t.integer "position"
   end
 
   add_index "events_songs", ["event_id", "song_id"], name: "index_events_songs_on_event_id_and_song_id"
