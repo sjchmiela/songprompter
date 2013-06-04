@@ -3,6 +3,7 @@
 
 function refresh() {
   $("textarea").autosize();
+  $(".sortable").sortable();
 }
 
 $(document).ready(refresh);

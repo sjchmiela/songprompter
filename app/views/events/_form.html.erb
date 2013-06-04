@@ -12,5 +12,11 @@
   <% end %>
   <div class="relative"><%= f.text_field :name, :placeholder => "Nazwa wydarzenia" %><%= f.submit  :value => "Zapisz", :class => "big-screen" %></div>
   <div style="margin-left: 15%; margin-top: 1rem;"><%= f.date_select :date %></div>
+
+  <ul class="sortable">
+  <% event.songs.each do |song| %>
+    <li class="song-in-event"><h3><%= song.name %></h3><p><%= raw song.text.split("\n")[0..1].join("<br />") %>…</p></div>
+  <% end %>
+  </ul>
   <%= f.submit  :value => "Zapisz", :class => "small-screen" %>
 <% end %>

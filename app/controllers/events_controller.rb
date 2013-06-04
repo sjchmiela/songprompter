@@ -2,7 +2,7 @@ class EventsController < ApplicationController
   # before_action :set_event, only: [:show, :edit, :update, :destroy]
   expose(:event, attributes: :event_params)
   expose(:events) { Event.includes(:songs)}
-  expose(:songs) { event.songs }
+  expose(:songs)
   # GET /events
   # GET /events.json
   def index
