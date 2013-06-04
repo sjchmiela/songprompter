@@ -1,15 +1,14 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @song.name %>
-</p>
-
-<p>
-  <strong>Text:</strong>
-  <%= @song.text %>
-</p>
-
-
-<%= link_to 'Edit', edit_song_path(@song) %> |
-<%= link_to 'Back', songs_path %>
+<% content_for :title do %>„<%= song.name %>”<% end %>
+<aside class="filler">
+  <% if song.events %>
+    <h2>Wydarzenia</h2>
+    <ul>
+    <% song.events.each do |e| %>
+      <li><%= link_to e.desc, e %></li>
+    <% end %>
+    </ul>
+  <% else %>&nbsp;<% end %></aside>
+<section>
+  <%= raw song.text.gsub(/\n/, "<br />") %>
+</section>
+<aside class="filler"><%= link_to "Edytuj", edit_song_path(song), :class => "button" %><br /><%= link_to "Usuń", song, :class => "button", :data => {confirm: "Na pewno usunąć?"}, :method => :delete %></aside>

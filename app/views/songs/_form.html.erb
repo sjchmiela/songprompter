@@ -1,25 +1,16 @@
-<%= form_for(@song) do |f| %>
-  <% if @song.errors.any? %>
+<%= form_for(song) do |f| %>
+  <% if song.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@song.errors.count, "error") %> prohibited this song from being saved:</h2>
+      <h2><%= pluralize(song.errors.count, "error") %> prohibited this song from being saved:</h2>
 
       <ul>
-      <% @song.errors.full_messages.each do |msg| %>
+      <% song.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :text %><br />
-    <%= f.text_area :text %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <div class="relative"><%= f.text_field :name, :placeholder => "Tytuł" %><%= f.submit  :value => "Zapisz", :class => "big-screen" %></div>
+  <%= f.text_area :text, :placeholder => "Tekst piosenki" %>
+  <%= f.submit  :value => "Zapisz", :class => "small-screen" %>
 <% end %>

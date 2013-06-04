@@ -24,3 +24,23 @@ a.song {
     border-bottom: 1px solid #d6009e;
   }
 }
+
+
+h2 { margin-top: 0 }
+.icon:before {
+  position: absolute; top: 0; left: 0;
+  font-family: 'iconfont';
+  font-size: 1.618rem;
+  line-height: 3rem;
+  width: 3rem;
+  height: 3rem;
+  display: inline-block;
+  color: white;
+  font-style: normal;
+  font-weight: normal;
+}
+
+
+.home:before { content: '\e800'; font-size: 2rem; top: 1px;}
+.music:before { content: '\e801'; left: -2px;}
+.calendar:before { content: '\e802'; }

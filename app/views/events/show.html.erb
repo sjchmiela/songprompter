@@ -1,10 +1,13 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= event.name %>
-</p>
-
-
-<%= link_to 'Edit', edit_event_path(event) %> |
-<%= link_to 'Back', events_path %>
+<% content_for :title do %><%= event.name %><% if event.date %> (<%= event.date %>)<% end %><% end %>
+<aside class="filler">&nbsp;</aside>
+<section>
+  <% if event.songs %>
+  <h2>Piosenki</h2>
+    <ol>
+      <% event.songs.each do |s| %>
+      <li><%= link_to s.name, s %></li>
+      <% end %>
+    </ol>
+  <% end %>
+</section>
+<aside class="filler"><%= link_to "Edytuj", edit_event_path(event), :class => "button" %><br /><%= link_to "Usuń", event, :class => "button", :data => {confirm: "Na pewno usunąć?"}, :method => :delete %></aside>

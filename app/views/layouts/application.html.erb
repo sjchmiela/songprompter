@@ -9,9 +9,7 @@
 <body class="<%= params[:controller] %>">
   <header class="indicator">
     <nav>
-      <%= link_to (image_tag "home.svg", :class => "svg", :alt => "Strona główna"), root_path %>
-      <%= link_to (image_tag "audio.svg", :class => "svg", :alt => "Piosenki"), songs_path %>
-      <%= link_to (image_tag "events.svg", :class => "svg", :alt => "Wydarzenia"), events_path %>
+      <%= link_to (raw "<i class='icon home'></i>"), root_path %><%= link_to (raw "<i class='icon music'></i>"), songs_path %><%= link_to (raw "<i class='icon calendar'></i>"), events_path %>
     </nav>
     <h1><%= yield :title %></h1>
   </header>

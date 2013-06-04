@@ -1,6 +1,3 @@
-<h1>Editing song</h1>
+<% content_for :title do %>Edycja „<%= song.name %>”<% end %>
 
 <%= render 'form' %>
-
-<%= link_to 'Show', @song %> |
-<%= link_to 'Back', songs_path %>
