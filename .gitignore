@@ -16,5 +16,5 @@
 /tmp
 
 /config/database.yml
-
+/SongPrompter.sublime-*
 *.DS_Store
