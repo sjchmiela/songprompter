@@ -82,7 +82,7 @@ a.card {
 }
 
 a.event-desc { background: #afe2f8; }
-a.song-desc { background: lighten(#ff9338, 10%); }
+.song-desc { background: lighten(#ff9338, 10%); }
 
 h2 span {
   float: right;
@@ -139,3 +139,5 @@ a.card {
 
 .filler { width: 25%; float: left; display: block;}
 aside+section { width: 50%; margin: 0 auto; line-height: 1.5rem; float: left}
+
+.song-in-list { width: 70%;}

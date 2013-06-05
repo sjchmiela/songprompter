@@ -4,6 +4,7 @@
 function refresh() {
   $("textarea").autosize();
   $(".sortable").sortable();
+  $('.datepicker').datepicker();
 }
 
 $(document).ready(refresh);
