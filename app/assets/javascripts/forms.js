@@ -2,7 +2,7 @@
 
 
 function refresh() {
-  $("textarea").autosize();
+  $(".autosize").autosize();
   $(".sortable").sortable();
   $('.datepicker').datepicker();
 }
