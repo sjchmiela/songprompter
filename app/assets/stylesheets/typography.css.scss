@@ -40,9 +40,14 @@ h2 { margin-top: 0 }
   font-weight: normal;
 }
 
-.song-list { margin-left: 15%;}
+.song-in-list h3 { margin-top: 0;}
+
+.song-list { }
 .song-list h2 { margin-top: 1rem;}
 .song-list ul { list-style-type: none; padding: 0}
+
+.song-in-list { margin-left: 10%; padding: 1rem 5%;}
+.song-in-list h2 { margin-bottom: 0}
 
 .home:before { content: '\e800'; font-size: 2rem; top: 1px;}
 .music:before { content: '\e801'; left: -2px;}

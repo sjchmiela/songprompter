@@ -1,4 +1,4 @@
-input[type=text] {
+input[type=text].title {
   border: none;
   box-shadow: none;
   font-size: 2rem;
@@ -7,9 +7,10 @@ input[type=text] {
   font-weight: bold;
   padding: 0rem 15%;
   box-sizing: border-box;
-  outline: none;
-  
+  outline: none; 
 }
+
+input[type=text] { border: none; outline: none;}
 textarea, input[type=text] { color: rgba(0,0,0,0.7);}
 textarea:focus, input[type=text]:focus {
   color: #000;

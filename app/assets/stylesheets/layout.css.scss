@@ -1,3 +1,7 @@
+body {
+  background: white;
+}
+
 footer {
   float: left;
   width: 100%;
@@ -57,7 +61,7 @@ nav a:hover {
   text-shadow: 0 -1px 0 darken(#ff9338, 15%);
 }
 
-a.card {
+.card {
   display: inline-block;
   background:  #afe2f8;
   width: 30%;
@@ -81,8 +85,12 @@ a.card {
   }
 }
 
-a.event-desc { background: #afe2f8; }
+.event-desc { background: #afe2f8; }
 .song-desc { background: lighten(#ff9338, 10%); }
+
+.song-list {
+  margin-top: 2rem;
+}
 
 h2 span {
   float: right;
@@ -100,14 +108,12 @@ h1 span {
   line-height: 2rem;
 }
 
-.new-event {
+.new {
   opacity: 0.5;
-  transition: opacity 0.5s;
 }
 
-.new-event:hover {
+.new:hover {
   opacity: 1;
-  transition: opacity 0.5s;
 }
 
 @media only screen and (max-width : 1280px) {
@@ -141,3 +147,4 @@ a.card {
 aside+section { width: 50%; margin: 0 auto; line-height: 1.5rem; float: left}
 
 .song-in-list { width: 70%;}
+.song-list h2 { margin-left: 15%;}

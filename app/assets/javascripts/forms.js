@@ -4,7 +4,7 @@
 function refresh() {
   $(".autosize").autosize();
   $(".sortable").sortable();
-  $('.datepicker').datepicker();
+  $('.datepicker').datepicker({dateFormat: "yy-mm-dd"});
 }
 
 $(document).ready(refresh);

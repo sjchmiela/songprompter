@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-  <div class="relative"><%= f.text_field :name, :placeholder => "Tytuł" %><%= f.submit  :value => "Zapisz", :class => "big-screen" %></div>
+  <div class="relative"><%= f.text_field :name, :placeholder => "Tytuł", :class => :title %><%= f.submit  :value => "Zapisz", :class => "big-screen" %></div>
   <%= f.text_area :text, :placeholder => "Tekst piosenki", :class => "autosize" %>
   <%= f.submit  :value => "Zapisz", :class => "small-screen" %>
 <% end %>
