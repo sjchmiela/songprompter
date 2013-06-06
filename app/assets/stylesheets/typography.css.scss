@@ -18,13 +18,6 @@ a.event {
   }
 }
 
-a.song {
-  color: #d6009e;
-  &:hover {
-    border-bottom: 1px solid #d6009e;
-  }
-}
-
 
 h2 { margin-top: 0 }
 .icon:before {
@@ -46,8 +39,30 @@ h2 { margin-top: 0 }
 .song-list h2 { margin-top: 1rem;}
 .song-list ul { list-style-type: none; padding: 0}
 
-.song-in-list { margin-left: 10%; padding: 1rem 5%;}
+.song-in-list { /*margin-left: 10%;*/ /*padding: 1rem 5%;*/ margin-bottom: 0;  -webkit-transform: translateY(0px);}
+.song-in-list:last-child { margin-bottom: 0}
 .song-in-list h2 { margin-bottom: 0}
+
+#songs {
+  padding-left: 15%;
+  padding-right: 15%;
+  .sortable-placeholder { background: none; border: 0.25rem dashed lighten(#ff9338, 10%); width: 100%;padding: 0.75rem}
+}
+#songs button, #new-song-list button {
+    background: transparent;
+    border: none;
+    float: right;
+    font-weight: bold;
+    color: darken(#ff9338, 20%);
+    opacity: 0.7;
+    line-height: 1.618rem;
+  }
+  #songs button:hover, #new-song-list button:hover { opacity: 1;}
+#songs li, .new-song-in-event { font-size: 1.618rem; font-weight: bold; line-height: 2rem; background: lighten(#ff9338, 10%); margin-bottom: 1rem;  width: 100%;padding: 1rem 1rem;}
+.new-song-in-event { opacity: 0.7; transition: all 0.3s; width: 70%; margin-left: 15%;}
+.new-song-in-event:hover { opacity: 1;}
+
+#new-song-list { display: none; transition: all 0.5s; transform: rotateX(90deg);}
 
 .home:before { content: '\e800'; font-size: 2rem; top: 1px;}
 .music:before { content: '\e801'; left: -2px;}

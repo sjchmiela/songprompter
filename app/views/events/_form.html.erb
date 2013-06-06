@@ -11,28 +11,45 @@
     </div>
   <% end %>
   <div class="relative"><%= f.text_field :name, :placeholder => "Nazwa wydarzenia", :class => :title %><%= f.submit  :value => "Zapisz", :class => "big-screen" %></div>
-  <div style="margin-left: 15%; margin-top: 1rem;"><%= f.label :date, "W dniu: " %><%= f.text_field :date, class: :datepicker, placeholder: "Data" %></div>
+  <div style="margin-left: 15%; margin-top: 1rem;"><%= f.label :date, "W dniu: ", :style => "margin-left: 1rem;" %><%= f.text_field :date, class: :datepicker, placeholder: "Data" %></div>
   <section class="song-list"><h2>Lista piosenek</h2>
-  <ul class="">
-  <% songs.each do |song| %>
-    <li class="song-desc song-in-list"><h3><%= song.name %></h3><p><%= raw song.text.split("\n")[0..1].join("<br />") %>…</p><span onclick="javascript:up(this)">Up</span><a href="">Down</a><a href="">Remove</a></li>
+  <ul id="songs">
+  <% event.songs.each do |song| %>
+    <li><%= hidden_field_tag "event_songs[#{song.id}]", "present" %><%= song.name %><button type="button" onclick="javascript:$(this).parent().remove()">&times;</button></li>
   <% end %>
   </ul>
-  <div class="song-desc song-in-list"><h3>Nowa piosenka</h3></div>
+  <div class="new-song-in-event" id="new-song" onclick="javascript:startAddingSongs()">Dodaj piosenkę do wydarzenia</div>
+  <div class="new-song-in-event" id="new-song-list"><select></select><button type="button" onclick="">+</button></div>
   <%= f.submit  :value => "Zapisz", :class => "small-screen" %>
 <% end %>
 <script>
-function up(el) {
-    console.log($(el).parent());
-    var current = $(el).parent();
-    var previous = current.prev();
-    if($.isEmptyObject($(previous))) {
-      return;
-    }
-    else {
-      console.log('lets party');
-      $(previous).before(current);
-      $(current).remove();
-    }
-  }
+function removeSong(el) {
+  $(el).parent().remove();
+}
+$("#songs").sortable({
+  axis: 'y',
+  appendTo: "parent",
+  cursor: "move",
+  forcePlaceholderSize: true,
+  opacity: 0.7,
+  helper: "clone",
+  placeholder: "sortable-placeholder"
+});
+
+function startAddingSongs() {
+  $("#new-song").css("transition", "all 0.5s");
+  $("#new-song").css("transform", "rotateX(90deg)");
+  setTimeout(function() {
+    $("#new-song").css("display", "none");
+    $("#new-song-list").css("transform", "rotateX(0deg)");
+    $("#new-song-list").css("display", "block");
+  }, 500);
+}
+
+function addSongToList(id, title)
+{
+  $("#songs").append("<li><input type='hidden' name='event_songs["+id+"]' value='present' id='event_songs_"+id+"' />"+title+"<button type='button' onclick='javascript:$(this).parent().remove()'>&times;</button></li>");
+}
+
+
 </script>
