@@ -18,8 +18,10 @@
     <li><%= hidden_field_tag "event_songs[#{song.id}]", "present" %><%= song.name %><button type="button" onclick="javascript:$(this).parent().remove()">&times;</button></li>
   <% end %>
   </ul>
-  <div class="new-song-in-event" id="new-song" onclick="javascript:startAddingSongs()">Dodaj piosenkę do wydarzenia</div>
-  <div class="new-song-in-event" id="new-song-list"><select></select><button type="button" onclick="">+</button></div>
+  <div style="position: relative; height: 4rem;">
+    <div class="new-song-in-event new-song-in-event-add" id="new-song" onclick="javascript:startAddingSongs()">Dodaj piosenkę do wydarzenia</div>
+    <div class="new-song-in-event" id="new-song-list"><select></select><button type="button" onclick="">+</button></div>
+  </div>
   <%= f.submit  :value => "Zapisz", :class => "small-screen" %>
 <% end %>
 <script>
@@ -37,13 +39,10 @@ $("#songs").sortable({
 });
 
 function startAddingSongs() {
-  $("#new-song").css("transition", "all 0.5s");
   $("#new-song").css("transform", "rotateX(90deg)");
   setTimeout(function() {
-    $("#new-song").css("display", "none");
     $("#new-song-list").css("transform", "rotateX(0deg)");
-    $("#new-song-list").css("display", "block");
-  }, 500);
+  }, 200);
 }
 
 function addSongToList(id, title)
