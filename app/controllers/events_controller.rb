@@ -2,6 +2,7 @@ class EventsController < ApplicationController
   # before_action :set_event, only: [:show, :edit, :update, :destroy]
   expose(:event, attributes: :event_params)
   expose(:events) { Event.includes(:songs)}
+  expose(:event_songs) { event.events_songs.order("position").includes(:song) }
   expose(:songs) { Song.find(:all, :conditions => ['id not in (?)', event.songs.map(&:id).join(',')], :order => :name)}
   # GET /events
   # GET /events.json
@@ -46,6 +47,9 @@ class EventsController < ApplicationController
   # DELETE /events/1
   # DELETE /events/1.json
   def destroy
+    event.events_songs.each do |e|
+      e.destroy
+    end
     event.destroy
     redirect_to events_url
   end
@@ -62,9 +66,11 @@ class EventsController < ApplicationController
     end
 
     def update_songs
-      event.songs.destroy_all
-      params[:event_songs].each do |key, value|
-        event.songs << Song.find(key)
+      event.events_songs.each do |e|
+        e.destroy
+      end
+      params[:event_songs].each_with_index do |(key, value), index|
+        EventsSong.create(:event => event, :song => Song.find(key), :position => index)
       end
     end
 end

@@ -1,3 +1,4 @@
 class Song < ActiveRecord::Base
-  has_and_belongs_to_many :events
+  has_many :events_songs
+  has_many :events, :through => :events_songs
 end

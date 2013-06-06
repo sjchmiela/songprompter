@@ -4,8 +4,8 @@
   <% if event.songs %>
   <h2>Piosenki</h2>
     <ol>
-      <% event.songs.each do |s| %>
-      <li><%= link_to s.name, s %></li>
+      <% event_songs.each do |e| %>
+      <li><%= link_to e.song.name, e.song %></li>
       <% end %>
     </ol>
   <% end %>

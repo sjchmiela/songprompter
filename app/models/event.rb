@@ -1,5 +1,6 @@
 class Event < ActiveRecord::Base
-  has_and_belongs_to_many :songs
+  has_many :events_songs
+  has_many :songs, :through => :events_songs
 
   def desc
     if self.date
