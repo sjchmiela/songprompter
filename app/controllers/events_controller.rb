@@ -25,6 +25,7 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     if event.save
+      update_songs
       redirect_to event, notice: 'Event was successfully created.'
     else
       render :new
@@ -35,6 +36,7 @@ class EventsController < ApplicationController
   # PATCH/PUT /events/1.json
   def update
     if event.save
+      update_songs
       redirect_to event, notice: 'Event was successfully updated.'
     else
       render :edit
@@ -57,5 +59,12 @@ class EventsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
       params.require(:event).permit(:name, :date)
+    end
+
+    def update_songs
+      event.songs.destroy_all
+      params[:event_songs].each do |key, value|
+        event.songs << Song.find(key)
+      end
     end
 end
