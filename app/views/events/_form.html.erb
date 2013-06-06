@@ -14,8 +14,8 @@
   <div style="margin-left: 15%; margin-top: 1rem;"><%= f.label :date, "W dniu: ", :style => "margin-left: 1rem;" %><%= f.text_field :date, class: :datepicker, placeholder: "Data" %></div>
   <section class="song-list"><h2>Lista piosenek</h2>
   <ul id="songs">
-  <% event.songs.each do |song| %>
-    <li><%= hidden_field_tag "event_songs[#{song.id}]", "present" %><%= song.name %><button type="button" onclick="javascript:removeSong(this, '<%= song.id %>', '<%= song.name %>')">&times;</button></li>
+  <% event_songs.each do |es| %>
+    <li><%= hidden_field_tag "event_songs[#{es.song.id}]", "present" %><%= es.song.name %><button type="button" onclick="javascript:removeSong(this, '<%= es.song.id %>', '<%= es.song.name %>')">&times;</button></li>
   <% end %>
   </ul>
   <div style="position: relative; height: 4rem;">
