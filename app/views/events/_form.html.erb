@@ -15,17 +15,30 @@
   <section class="song-list"><h2>Lista piosenek</h2>
   <ul id="songs">
   <% event.songs.each do |song| %>
-    <li><%= hidden_field_tag "event_songs[#{song.id}]", "present" %><%= song.name %><button type="button" onclick="javascript:$(this).parent().remove()">&times;</button></li>
+    <li><%= hidden_field_tag "event_songs[#{song.id}]", "present" %><%= song.name %><button type="button" onclick="javascript:removeSong(this, '<%= song.id %>', '<%= song.name %>')">&times;</button></li>
   <% end %>
   </ul>
   <div style="position: relative; height: 4rem;">
     <div class="new-song-in-event new-song-in-event-add" id="new-song" onclick="javascript:startAddingSongs()">Dodaj piosenkę do wydarzenia</div>
-    <div class="new-song-in-event" id="new-song-list"><select></select><button type="button" onclick="">+</button></div>
+    <div class="new-song-in-event" id="new-song-list">
+      <%= select_tag "song", options_from_collection_for_select(songs, "id", "name"), :disabled => true, :prompt => "Wybierz piosenkę" %>
+      <button type="button" onclick="addSongToList()">+</button>
+    </div>
   </div>
   <%= f.submit  :value => "Zapisz", :class => "small-screen" %>
 <% end %>
 <script>
-function removeSong(el) {
+
+
+function removeSong(el, id, name) {
+  $("#song").append("<option value='"+id+"'>"+name+"</option>");
+  var options = $('select option');
+  var arr = options.map(function(_, o) { return { t: $(o).text(), v: o.value }; }).get();
+  arr.sort(function(o1, o2) { return o1.t > o2.t ? 1 : o1.t < o2.t ? -1 : 0; });
+  options.each(function(i, o) {
+    o.value = arr[i].v;
+    $(o).text(arr[i].t);
+  });
   $(el).parent().remove();
 }
 $("#songs").sortable({
@@ -42,11 +55,16 @@ function startAddingSongs() {
   $("#new-song").css("transform", "rotateX(90deg)");
   setTimeout(function() {
     $("#new-song-list").css("transform", "rotateX(0deg)");
+    $("select").removeAttr("disabled");
   }, 200);
 }
 
-function addSongToList(id, title)
+function addSongToList()
 {
+  if(!$("option:selected").attr("value")) { alert("Wybierz piosenkę!"); return; }
+  var id = $("option:selected").attr("value");
+  var title = $("option:selected").text();
+  $("option:selected").remove();
   $("#songs").append("<li><input type='hidden' name='event_songs["+id+"]' value='present' id='event_songs_"+id+"' />"+title+"<button type='button' onclick='javascript:$(this).parent().remove()'>&times;</button></li>");
 }
 
