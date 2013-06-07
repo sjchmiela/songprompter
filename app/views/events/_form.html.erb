@@ -22,7 +22,7 @@
     <div class="new-song-in-event new-song-in-event-add" id="new-song" onclick="javascript:startAddingSongs()">Dodaj piosenkę do wydarzenia</div>
     <div class="new-song-in-event" id="new-song-list">
       <%= select_tag "song", options_from_collection_for_select(songs, "id", "name"), :disabled => true, :prompt => "Wybierz piosenkę" %>
-      <button type="button" onclick="addSongToList()">+</button>
+      <button type="button" onclick="addSongToList()" class="no-right">+</button>
     </div>
   </div>
   <%= f.submit  :value => "Zapisz", :class => "small-screen" %>

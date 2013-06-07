@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= yield :name %> » SongPrompter</title>
+  <%= stylesheet_link_tag    "presentation", media: "all", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+    <%= yield %>
+  </div>
+  </div>
+  <%= javascript_include_tag "presentation", "data-turbolinks-track" => true %>
+  <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: false,
+        progress: false,
+        history: false,
+        center: true      });
+
+    </script>
+
+</body>
+</html>

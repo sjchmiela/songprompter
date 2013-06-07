@@ -2,7 +2,7 @@ Songprompter::Application.routes.draw do
   resources :songs
 
   resources :events
-
+  get '/events/:id/presentation' => 'events#presentation', as: :event_presentation
   root to: 'events#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

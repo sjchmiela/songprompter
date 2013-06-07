@@ -9,9 +9,9 @@
 <a href="<%= event_path(event) %>" class="card event-desc">
   <div class="event">
     <h2><%= event.name %><% if event.date %><span><%= event.date %></span><% end %></h2>
-    <% if event.songs.any? %><ol>
-      <% event.songs.each do |song| %>
-      <li><%= song.name %></li>
+    <% if event.events_songs.any? %><ol>
+      <% event.events_songs.each do |es| %>
+      <li><%= es.song.name %></li>
       <% end %>
     </ol>
     <% end %>

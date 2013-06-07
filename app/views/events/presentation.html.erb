@@ -1,0 +1,14 @@
+<section>
+  <h1><%= event.name %></h1>
+  <% if event.date %><h2><%= event.date %></h2><% end %>
+</section>
+<% event.events_songs.each do |es| %>
+  <section>
+    <section><h1><%= es.song.name %></h1></section>
+    <% es.song.text.split("\r\n\r\n").each do |t| %>
+      <section>
+        <p><%= raw t.gsub(/\n/, "<br />") %></p>
+      </section>
+    <% end %>
+  </section>
+<% end %>

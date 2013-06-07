@@ -9,12 +9,6 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require jquery.ui.all
- *= require normalize
- *= require font
- *= require form
- *= require layout
- *= require queries
- *= require tables
- *= require typography
+ *= require reveal.min
+ *= require default
  */

@@ -1,5 +1,5 @@
 <% content_for :title do %><%= event.name %><% if event.date %> (<%= event.date %>)<% end %><% end %>
-<aside class="filler">&nbsp;</aside>
+<aside class="filler"><%= link_to "Pokaż prezentację", event_presentation_path(event), :class => :button %></aside>
 <section>
   <% if event.songs %>
   <h2>Piosenki</h2>
