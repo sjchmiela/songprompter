@@ -6,10 +6,15 @@
 <% event.events_songs.each do |es| %>
   <section>
     <section><h1><%= es.song.name %></h1></section>
-    <% es.song.text.split("\r\n\r\n").each do |t| %>
-      <section>
-        <p><%= raw t.gsub(/\n/, "<br />") %></p>
-      </section>
+    <% if es.song.chorus %>
+      <section><p><%= raw es.song.chorus %></p></section>
+    <% end %>
+    <% es.song.verses.each do |v| %>
+      <section><p><%= raw v %></p></section>
+      <% if es.song.chorus %>
+      <section><p><%= raw es.song.chorus %></p></section>
+      <% end %>
     <% end %>
   </section>
 <% end %>
+
