@@ -25,7 +25,8 @@ The song text should look like this:
 ```
 Text of chorus
 And another line if you like
-**##**
+Notice the two hashes after separating chorus
+##
 Text of verse 1
 With another
 And another line
@@ -34,3 +35,5 @@ Text of verse 2
 Notice the empty line
 Between the verses
 ```
+
+If you don't want a chorus just don't add it.
