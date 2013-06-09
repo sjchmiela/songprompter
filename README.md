@@ -22,7 +22,7 @@ Ever wondered how to easily present songs on slideshow? There's an app for that!
 
 The song text should look like this:
 
-```Text of chorus
+``Text of chorus
 And another line if you like
 **##**
 Text of verse 1
@@ -31,4 +31,4 @@ And another line
 
 Text of verse 2
 Notice the empty line
-Between the verses```
+Between the verses``
