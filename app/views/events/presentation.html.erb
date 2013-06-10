@@ -7,12 +7,12 @@
   <section>
     <section><h1><%= es.song.name %></h1></section>
     <% if es.song.chorus %>
-      <section><p><%= raw es.song.chorus %></p></section>
+      <section class="chorus"><p><%= raw es.song.chorus %></p></section>
     <% end %>
     <% es.song.verses.each do |v| %>
       <section><p><%= raw v %></p></section>
       <% if es.song.chorus %>
-      <section><p><%= raw es.song.chorus %></p></section>
+      <section class="chorus"><p><%= raw es.song.chorus %></p></section>
       <% end %>
     <% end %>
   </section>

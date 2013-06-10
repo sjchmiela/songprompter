@@ -9,6 +9,9 @@
     </ul>
   <% else %>&nbsp;<% end %></aside>
 <section>
-  <%= raw song.text.gsub(/\n/, "<br />") %>
+  <% if song.chorus %><p><strong><%= raw song.chorus %></strong></p><% end %>
+  <% song.verses.each do |v| %>
+    <p><%= raw v %></p>
+  <% end %>
 </section>
 <aside class="filler"><%= link_to "Edytuj", edit_song_path(song), :class => "button" %><br /><%= link_to "Usuń", song, :class => "button", :data => {confirm: "Na pewno usunąć?"}, :method => :delete %></aside>
