@@ -1,0 +1,13 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg">
+<metadata>Copyright (C) 2012 by original authors @ fontello.com</metadata>
+<defs>
+<font id="icons" horiz-adv-x="1000" >
+<font-face font-family="icons" font-weight="400" font-stretch="normal" units-per-em="1000" ascent="850" descent="-150" />
+<missing-glyph horiz-adv-x="1000" />
+<glyph glyph-name="events" unicode="&#xe031;" d="M0 471l379-2 125 359 117-363 379-8-309-221 109-365-307 225-311-215 119 359z" horiz-adv-x="1000" />
+<glyph glyph-name="songs" unicode="&#xe073;" d="M1-16q-9 57 37 104t118 57q64 10 119-18l25 652 689 53q-31-727-33-756-2-51-46-91t-108-50q-72-10-129 22t-64 89 37 104 117 58q68 10 125-21l25 465-539-55-6-131q-6-131-12-277t-8-176l0-6q-6-51-49-89t-107-48q-70-10-127 23t-65 90z" horiz-adv-x="991" />
+</font>
+</defs>
+</svg>
