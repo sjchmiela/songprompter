@@ -6,17 +6,19 @@
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
-<body class="<%= params[:controller] %>">
-  <header class="indicator">
-    <nav>
-      <%= link_to (raw "<i class='icon home'></i>"), root_path %><%= link_to (raw "<i class='icon music'></i>"), songs_path %><%= link_to (raw "<i class='icon calendar'></i>"), events_path %>
+<body class="p-<%= params[:controller] %>">
+  <header class="l-Header">
+    <h1 class="c-PageTitle">SongPrompter</h1>
+    <nav class="l-Navigation">
+      <%= link_to "Piosenki", songs_path, :class => "c-Button c-Button-songs" %>
+      <%= link_to "Wydarzenia", events_path, :class => "c-Button c-Button-events" %>
     </nav>
     <h1><%= yield :title %></h1>
   </header>
-  <article class="wrapper">
+  <article class="l-Content">
     <%= yield %>
   </article>
-  <footer>
+  <footer class="l-Footer">
     SongPrompter, Stanisław Chmiela, &copy; 2013
   </footer>
 </body>

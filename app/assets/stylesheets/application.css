@@ -12,9 +12,6 @@
  *= require jquery.ui.all
  *= require normalize
  *= require font
- *= require form
  *= require layout
- *= require queries
- *= require tables
- *= require typography
+ *= require components
  */
