@@ -1,17 +1,20 @@
 <% content_for :title do %>„<%= song.name %>”<% end %>
-<aside class="filler">
-  <% if song.events %>
-    <h2>Wydarzenia</h2>
-    <ul>
-    <% song.events.each do |e| %>
-      <li><%= link_to e.desc, e %></li>
-    <% end %>
-    </ul>
-  <% else %>&nbsp;<% end %></aside>
-<section>
-  <% if song.chorus %><p><strong><%= raw song.chorus %></strong></p><% end %>
-  <% song.verses.each do |v| %>
-    <p><%= raw v %></p>
-  <% end %>
+
+<section class="l-HalfContent">
+  <h1>„<%= song.name %>”</h1>
+  <div class="c-CardButtonsContainer">
+    <%= link_to "Edytuj", edit_song_path(song), :class => "c-Card c-CardButton u-Half" %>
+    <%= link_to "Usuń", (song), :class => "c-Card c-CardButton u-Half c-CardButton-Warning", :data => {confirm: "Na pewno usunąć tę piosenkę?"}, :method => :delete %>
+  </div>
 </section>
-<aside class="filler"><%= link_to "Edytuj", edit_song_path(song), :class => "button" %><br /><%= link_to "Usuń", song, :class => "button", :data => {confirm: "Na pewno usunąć?"}, :method => :delete %></aside>
+
+<section class="l-HalfContent">
+<% if song.chorus %>
+  <p>
+    <strong><%= raw song.chorus %></strong>
+  </p>
+<% end %>
+<% song.verses.each do |v| %>
+  <p><%= raw v %></p>
+<% end %>
+</section>

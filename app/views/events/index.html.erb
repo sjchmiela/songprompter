@@ -1,20 +1,7 @@
-<% content_for :title do %>Wydarzenia<% end %>
+<% content_for :title do %>Lista wydarzeń<% end %>
 
-<a href="<%= new_event_path %>" class="card event-desc new">
-  <div class="event">
-    <h2>Nowe wydarzenie</h2>
-  </div>
-</a>
+<h1>Lista wydarzeń</h1>
+
 <% events.each do |event| %>
-<a href="<%= event_path(event) %>" class="card event-desc">
-  <div class="event">
-    <h2><%= event.name %><% if event.date %><span><%= event.date %></span><% end %></h2>
-    <% if event.events_songs.any? %><ol>
-      <% event.events_songs.each do |es| %>
-      <li><%= es.song.name %></li>
-      <% end %>
-    </ol>
-    <% end %>
-  </div>
-</a>
+  <%= link_to event.name, event, :class => "c-Card" %>
 <% end %>

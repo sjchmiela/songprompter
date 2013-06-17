@@ -1,14 +1,7 @@
-<% content_for :title do %>Piosenki<% end %>
+<% content_for :title do %>Lista piosenek<% end %>
 
-<a href="<%= new_song_path %>" class="card song-desc new">
-  <div class="song">
-    <h2>Nowa piosenka</h2>
-  </div>
-</a>
+<h1>Lista piosenek</h1>
+
 <% songs.each do |song| %>
-<a href="<%= song_path(song) %>" class="card song-desc">
-  <div class="song">
-    <h2><%= song.name %></h2>
-  </div>
-</a>
+<%= link_to song.name, song, :class => "c-Card" %>
 <% end %>
