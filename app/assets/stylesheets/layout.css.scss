@@ -39,6 +39,12 @@ body {
   text-decoration: none;
 }
 
+.l-Content p a:hover, .l-Content li a:hover {
+  border-bottom: 1px solid #000;
+}
+
+.l-Content li { line-height: 1.6rem;}
+
 .l-HalfContent {
   display: inline-block;
   width: 50%;
@@ -51,4 +57,9 @@ body {
 .l-HalfContent+.l-HalfContent {
   padding-left: 1.309rem;
   padding-right: 0;
+}
+
+.l-SongForm {
+  width: 21rem;
+  margin: 0 auto;
 }

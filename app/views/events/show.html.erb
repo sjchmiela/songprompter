@@ -1,6 +1,6 @@
 <% content_for :title do %><%= event.name %><% if event.date %> (<%= event.date %>)<% end %><% end %>
 <section class="l-HalfContent">
-  <h1><%= event.name %></h1>
+  <h1><%= event.name %><% if event.date %><span class="c-AdditionalInfo"><%= event.date %></span><% end %></h1>
   <%= link_to "Prezentacja", event_presentation_path(event), :class => "c-Card c-CardButton" %>
   <div class="c-CardButtonsContainer">
     <%= link_to "Edytuj", edit_event_path(event), :class => "c-Card c-CardButton u-Half" %>

@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-@mixin bg-transition-hover {
+@mixin transition-all-hover {
   -webkit-transition: all 0.2s;
   -moz-transition: all 0.2s;
   -o-transition: all 0.2s;
@@ -8,7 +8,7 @@
   transition: all 0.2s;
 }
 
-@mixin bg-transition {
+@mixin transition-all {
   -webkit-transition: all 0.5s;
   -moz-transition: all 0.5s;
   -o-transition: all 0.5s;
@@ -28,7 +28,7 @@
   border: 1px solid #999;
   text-decoration: none;
   outline: 0;
-  @include bg-transition;
+  @include transition-all;
   &::before {
     background: transparent;
     font-family: "icons", Georgia, sans-serif;
@@ -66,7 +66,7 @@
 
 .c-Button:hover {
   background-color: #efefef;
-  @include bg-transition-hover;
+  @include transition-all-hover;
 }
 
 .c-Button:active::after {
@@ -92,12 +92,13 @@
   padding: 1rem;
   border-radius: 0.618rem;
   border: 1px solid #999;
-  @include bg-transition;
+  @include transition-all;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   color: #000;
+  background: #fff;
   &:last-child { margin-bottom: 0; }
-  &:hover { border-bottom: 1px solid #999; background: #efefef; @include bg-transition-hover;}
+  &:hover { border-bottom: 1px solid #999; background: #efefef; @include transition-all-hover;}
 }
 
 .c-CardButton {
@@ -128,4 +129,70 @@
   line-height: 3.607rem;
   margin-top: 3.607rem;
   margin-bottom: 3.607rem;
+}
+
+.c-AdditionalInfo {
+  font-weight: bold;
+  font-size: 0.825rem;
+  line-height: 0.825rem;
+  color: #999;
+  margin-left: 0.618rem;
+}
+
+.c-InputName {
+  font-weight: 300;
+  font-size: 2.16rem;
+  margin: 0.618rem 0 0.5rem;
+  padding: 0;
+  padding-bottom: 0.118rem;
+  border: none;
+  width: 100%;
+  @include transition-all;
+  border-bottom: 1px solid #999;
+  &:focus {
+    outline: 0;
+    border-bottom: 1px solid #999;
+    @include transition-all-hover;
+  }
+}
+
+.c-InputVerse {
+  border-radius: 0.618rem;
+  text-align: center;
+  width: 21rem;
+  font-size: 1rem;
+  height: 15rem;
+  line-height: 1.31rem;
+  padding: 0;
+  border: none;
+  @include transition-all;
+  border: 1px solid #999;
+  margin-bottom: 2rem;
+  overflow: hidden;
+  display: table-cell;
+  max-height: 15rem;
+  vertical-align: middle;
+  resize: none;
+  background-image: linear-gradient(top, #fff 0%, #fff 15rem, #fce6e6 15rem, #fce6e6 100%);
+  background-image: -webkit-linear-gradient(top, #fff 0%, #fff 15rem, #fce6e6 15rem, #fce6e6 100%);
+  background-image: -moz-linear-gradient(top, #fff 0%, #fff 15rem, #fce6e6 15rem, #fce6e6 100%);
+  background-image: -o-linear-gradient(top, #fff 0%, #fff 15rem, #fce6e6 15rem, #fce6e6 100%);
+  background-image: -ms-linear-gradient(top, #fff 0%, #fff 15rem, #fce6e6 15rem, #fce6e6 100%);
+  background-image: -webkit-gradient(linear,left top,left bottom, color-stop(0rem, rgb(255,255,255)), color-stop(15rem, rgb(255,255,255)),color-stop(15rem, #fce6e6), color-stop(100%, #fce6e6));
+  &:focus {
+    outline: 0;
+    border: 1px solid #999;
+    @include transition-all-hover;
+  }
+}
+
+.c-SectionTagline {
+  font-size: 0.825rem;
+  color: #999;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+  display: block;
+  margin-top: 1rem;
 }

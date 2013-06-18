@@ -1,4 +1,4 @@
-<%= form_for(song) do |f| %>
+<%= form_for(song, :html => {:class => "l-SongForm"}) do |f| %>
   <% if song.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(song.errors.count, "error") %> prohibited this song from being saved:</h2>
@@ -10,7 +10,15 @@
       </ul>
     </div>
   <% end %>
-  <div class="relative"><%= f.text_field :name, :placeholder => "Tytuł", :class => :title %><%= f.submit  :value => "Zapisz", :class => "big-screen" %></div>
-  <%= f.text_area :text, :placeholder => "Tekst piosenki", :class => "autosize" %>
-  <%= f.submit  :value => "Zapisz", :class => "small-screen" %>
+  <%= f.text_field :name, :placeholder => "Tytuł", :class => "c-InputName" %>
+  <%= label_tag "chorus-label", "Refren", :class => "c-SectionTagline" %>
+  <div id="js-chorus" class="c-InputVerse" contenteditable><%= raw song.chorus %></div>
+  <% song.verses.each_index do |i| %>
+    <div class="js-VerseBlock">
+      <%= label_tag "verse#{i}-label", "Zwrotka #{i+1}", :class => "c-SectionTagline" %>
+      <div id="chorus" class="js-verse c-InputVerse" contenteditable><%= raw song.verses[i] %></div>
+    </div>
+  <% end %>
+  <%= f.text_area :text, :class => "u-Hidden" %>
+  <button class="c-Card c-CardButton u-MarginTop" onclick="return copySongsText();">Zapisz</button>
 <% end %>

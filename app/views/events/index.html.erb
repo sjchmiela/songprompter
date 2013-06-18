@@ -3,5 +3,10 @@
 <h1>Lista wydarzeń</h1>
 
 <% events.each do |event| %>
-  <%= link_to event.name, event, :class => "c-Card" %>
+  <% if event.date %>
+    <% txt = event.name+"<span class='c-AdditionalInfo'>#{event.date}</span>" %>
+  <% else %>
+    <% txt = event.name %>
+  <% end %>
+  <%= link_to (raw txt), event, :class => "c-Card" %>
 <% end %>
