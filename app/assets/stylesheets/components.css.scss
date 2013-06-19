@@ -28,6 +28,7 @@
   border: 1px solid #999;
   text-decoration: none;
   outline: 0;
+  background: white;
   @include transition-all;
   &::before {
     background: transparent;
@@ -48,6 +49,24 @@
     text-indent: 0;
     z-index: 100;
   }
+}
+
+.c-Button-Small {
+  width: 2.618rem;
+  height: 2.618rem;
+  &:before {
+    font-size: 1.618rem;
+    line-height: 2.618rem;
+    width: 2.618rem;
+    height: 2.618rem;
+  }
+}
+
+.c-Button-add::before {
+  content: "＋";
+  color: #999;
+  text-align: center;
+  text-indent: -1px;
 }
 
 .c-Button+.c-Button {
@@ -83,6 +102,17 @@
   -webkit-box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.3);
   -moz-box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.3);
   box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.3);
+}
+
+.c-Button-Small:active::after {
+  height: 2.618rem;
+  width: 2.618rem;
+  left: -1px;
+  top: -1px;
+  background: rgba(0,0,0,0.15);
+  -webkit-box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.2);
 }
 
 .c-Card {
@@ -195,4 +225,35 @@
   width: 100%;
   display: block;
   margin-top: 1rem;
+}
+
+.c-VerseBlock {
+  position: relative;
+}
+
+.c-VerseBlockHandle {
+  position: absolute;
+  height: 1rem;
+  width: 1rem;
+  padding: 0;
+  background: none;
+  line-height: 0;
+  font-size: 1rem;
+  color: #999;
+  border: none;
+  opacity: 0.5;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.c-VerseBlockHandle-top {
+  left: -1rem;
+  top: 0;
+}
+
+.c-ButtonsInForm {
+  text-align: center;
+  width: 100%;
+  margin-top: 0.618rem;
 }

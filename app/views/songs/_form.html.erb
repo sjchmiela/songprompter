@@ -14,11 +14,15 @@
   <%= label_tag "chorus-label", "Refren", :class => "c-SectionTagline" %>
   <div id="js-chorus" class="c-InputVerse" contenteditable><%= raw song.chorus %></div>
   <% song.verses.each_index do |i| %>
-    <div class="js-VerseBlock">
+    <div class="js-VerseBlock c-VerseBlock">
+      <button type="button" class="c-VerseBlockHandle c-VerseBlockHandle-top" onclick="removeBlock(this);">&times;</button>
       <%= label_tag "verse#{i}-label", "Zwrotka #{i+1}", :class => "c-SectionTagline" %>
       <div id="chorus" class="js-verse c-InputVerse" contenteditable><%= raw song.verses[i] %></div>
     </div>
   <% end %>
+  <div class="c-ButtonsInForm">
+    <button type="button" class="u-CenterOut c-Button c-Button-Small c-Button-add u-MarginTop" onclick="addVerseBlock();">Dodaj zwrotkę</button>
+  </div>
   <%= f.text_area :text, :class => "u-Hidden" %>
   <button class="c-Card c-CardButton u-MarginTop" onclick="return copySongsText();">Zapisz</button>
 <% end %>

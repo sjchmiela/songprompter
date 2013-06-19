@@ -29,8 +29,10 @@ function copySongsText() {
   }
   verses.each(function (index) {
       text = text + verses[index].innerText;
-      if(index != verses.length-1) {
-        text = text + "\n===\n";
+      if(verses[index].innerText != "") {
+        if(index != verses.length-1) {
+          text = text + "\n===\n";
+        }
       }
   });
   $("#song_text").val(text);
@@ -39,7 +41,8 @@ function copySongsText() {
 
 function addVerseBlock() {
   var new_index = $(".js-verse").length + 1;
-  var toAppend = '<div class="js-VerseBlock">\
+  var toAppend = '<div class="js-VerseBlock c-VerseBlock">\
+  <button type="button" class="c-VerseBlockHandle c-VerseBlockHandle-top" onclick="removeBlock(this);">&times;</button>\
       <label class="c-SectionTagline" for="verse'+new_index+'-label">Zwrotka '+new_index+'</label>\
       <div id="chorus" class="js-verse c-InputVerse" contenteditable></div>\
     </div>';
@@ -58,21 +61,24 @@ function watchVerseBlocksForAdding() {
   });
 }
 
+function refreshLabels() {
+  $(".js-VerseBlock").each(function (index) {
+    $(this).children("label").text("Zwrotka "+(index+1));
+    $(this).children("label").attr("for", "verse"+(index+1)+"-label");
+  });
+}
+
 function watchVerseBlocksForRemoving() {
   $(".js-VerseBlock .js-verse").on("blur", function() {
     if($(this).text() == "")
     {
       $(this).parent().remove();
-      $(".js-VerseBlock").each(function (index) {
-        $(this).children("label").text("Zwrotka "+(index+1));
-        $(this).children("label").attr("for", "verse"+(index+1)+"-label");
-      });
+      refreshLabels();
     }
   })
 }
 
-$(function() {
-  addVerseBlock();
-  watchVerseBlocksForAdding();
-  watchVerseBlocksForRemoving();
-})
+function removeBlock(handle) {
+  $(handle).parent().remove();
+  refreshLabels();
+}
