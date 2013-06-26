@@ -2,8 +2,9 @@ class EventsController < ApplicationController
   # before_action :set_event, only: [:show, :edit, :update, :destroy]
   expose(:event, attributes: :event_params)
   expose(:events) { Event.includes(:events_songs, :songs)}
-  expose(:event_songs) { event.events_songs.order("position").includes(:song) }
-  expose(:songs) { Song.find(:all, :conditions => ['id not in (?)', event.songs.map(&:id).join(',')], :order => :name)}
+  expose(:songs) {
+    Song.find(:all, :conditions => ["id not in (#{event.songs.map(&:id).join(',')})"], :order => :name)
+  }
   # GET /events
   # GET /events.json
   def index

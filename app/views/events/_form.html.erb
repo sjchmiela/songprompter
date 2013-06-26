@@ -1,4 +1,4 @@
-<%= form_for(event) do |f| %>
+<%= form_for(event, html: {class: "l-Form"}) do |f| %>
   <% if event.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
@@ -10,22 +10,19 @@
       </ul>
     </div>
   <% end %>
-  <div class="relative"><%= f.text_field :name, :placeholder => "Nazwa wydarzenia", :class => :title %><%= f.submit  :value => "Zapisz", :class => "big-screen" %></div>
-  <div style="margin-left: 15%; margin-top: 1rem;"><%= f.label :date, "W dniu: ", :style => "margin-left: 1rem;" %><%= f.text_field :date, class: :datepicker, placeholder: "Data" %></div>
-  <section class="song-list"><h2>Lista piosenek</h2>
-  <ul id="songs">
-  <% event_songs.each do |es| %>
-    <li><%= hidden_field_tag "event_songs[#{es.song.id}]", "present" %><%= es.song.name %><button type="button" onclick="javascript:removeSong(this, '<%= es.song.id %>', '<%= es.song.name %>')">&times;</button></li>
+  <%= f.text_field :name, :placeholder => "Nazwa wydarzenia", :class => "c-InputName" %>
+  <%= f.label :date, "W dniu: " %><%= f.text_field :date, class: "c-InputDate", placeholder: "Data" %>
+  <h2 class="c-SectionTagline">Lista piosenek</h2>
+  <ul id="songs" class="c-SongsList">
+  <% event.events_songs.each do |es| %>
+    <li><button type="button" class="c-RemoveSongButton" title="Usuń piosenkę z listy" onclick="javascript:removeSong(this, '<%= es.song.id %>', '<%= es.song.name %>')">Usuń piosenkę z listy</button><%= hidden_field_tag "event_songs[#{es.song.id}]", "present" %><%= es.song.name %></li>
   <% end %>
   </ul>
-  <div style="position: relative; height: 4rem;">
-    <div class="new-song-in-event new-song-in-event-add" id="new-song" onclick="javascript:startAddingSongs()">Dodaj piosenkę do wydarzenia</div>
-    <div class="new-song-in-event" id="new-song-list">
-      <%= select_tag "song", options_from_collection_for_select(songs, "id", "name"), :disabled => true, :prompt => "Wybierz piosenkę" %>
-      <button type="button" onclick="addSongToList()" class="no-right">+</button>
-    </div>
-  </div>
-  <%= f.submit  :value => "Zapisz", :class => "small-screen" %>
+<div class="c-Card">
+<%= select_tag "song", options_from_collection_for_select(songs, "id", "name"), :prompt => "Wybierz piosenkę" %>
+    <button type="button" onclick="addSongToList()">+</button>
+</div>
+<button class="c-Card c-CardButton u-MarginTop">Zapisz</button>
 <% end %>
 <script>
 
@@ -41,7 +38,7 @@ function removeSong(el, id, name) {
   });
   $(el).parent().remove();
 }
-$("#songs").sortable({
+/*$("#songs").sortable({
   axis: 'y',
   appendTo: "parent",
   cursor: "move",
@@ -49,7 +46,7 @@ $("#songs").sortable({
   opacity: 0.7,
   helper: "clone",
   placeholder: "sortable-placeholder"
-});
+});*/
 
 function startAddingSongs() {
   $("#new-song").css("transform", "rotateX(90deg)");

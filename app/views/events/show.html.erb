@@ -11,7 +11,7 @@
 <section class="l-HalfContent">
   <% if event.songs %>
     <ol>
-      <% event_songs.each do |e| %>
+      <% event.events_songs.each do |e| %>
       <li><%= link_to e.song.name, e.song %></li>
       <% end %>
     </ol>

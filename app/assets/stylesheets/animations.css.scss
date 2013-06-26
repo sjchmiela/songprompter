@@ -1,0 +1,65 @@
+.a-ExpandButton{
+  -webkit-animation: ExpandButton 1s 1;
+
+  -moz-animation: ExpandButton 1s 1;
+
+  -o-animation: ExpandButton 1s 1;
+
+  animation: ExpandButton 1s 1;
+}
+
+@-webkit-keyframes ExpandButton {
+
+  from {
+    border-radius: 2.618rem;
+    width: 2.168rem;
+  }
+
+  to {
+    border-radius: 0.618rem;
+    width: 100%;
+  }
+
+}
+
+@-moz-keyframes ExpandButton {
+
+  from {
+    border-radius: 2.618rem;
+    width: 2.168rem;
+  }
+
+  to {
+    border-radius: 0.618rem;
+    width: 100%;
+  }
+
+}
+
+@-o-keyframes ExpandButton {
+
+  from {
+    border-radius: 2.618rem;
+    width: 2.168rem;
+  }
+
+  to {
+    border-radius: 0.618rem;
+    width: 100%;
+  }
+
+}
+
+@keyframes ExpandButton {
+
+  from {
+    border-radius: 2.618rem;
+    width: 2.168rem;
+  }
+
+  to {
+    border-radius: 0.618rem;
+    width: 100%;
+  }
+
+}

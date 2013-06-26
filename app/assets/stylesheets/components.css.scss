@@ -177,12 +177,20 @@
   padding-bottom: 0.118rem;
   border: none;
   width: 100%;
-  @include transition-all;
   border-bottom: 1px solid #999;
   &:focus {
     outline: 0;
-    border-bottom: 1px solid #999;
-    @include transition-all-hover;
+  }
+}
+
+.c-InputDate {
+  padding: 0;
+  border: none;
+  padding-bottom: 0.118rem;
+  border-bottom: 1px solid #999;
+  margin-left: 0.618rem;
+  &:focus {
+    outline: 0;
   }
 }
 
@@ -256,4 +264,40 @@
   text-align: center;
   width: 100%;
   margin-top: 0.618rem;
+}
+
+.c-SongsList {
+  list-style-type: none;
+  padding-left: 0.618rem;
+  margin-top: 0.618rem;
+}
+
+.c-RemoveSongButton {
+  background: none;
+  border-radius: 100%;
+  border: 1px solid #999;
+  width: 1rem;
+  height: 1rem;
+  padding: 0;
+  line-height: 1rem;
+  text-indent: -999rem;
+  color: #999;
+  font-size: 1rem;
+  position: relative;
+  margin-right: 0.618rem;
+  display: inline-block;
+  top: 1px;
+  opacity: 0.4;
+  &:before {
+    content: '×';
+    display: block;
+    position: absolute;
+    font-size: 0.9rem;
+    top: -0.15rem;
+    left: 0.209rem;
+    text-indent: 0;
+  }
+  &:hover {
+    opacity: 1;
+  }
 }
