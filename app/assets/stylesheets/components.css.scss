@@ -71,13 +71,18 @@
     height: 1.618rem;
   }
 }
-
+.c-Button-InH1 {
+  float: right;
+  top: 0.618rem;
+}
 .c-Button-add::before {
   content: "＋";
   color: #999;
   text-align: center;
   text-indent: -1px;
 }
+
+a.c-Button-add::before { text-indent: 0; }
 
 .c-Button+.c-Button {
   margin-left: 3.494rem;
@@ -287,6 +292,12 @@
   text-align: center;
   width: 100%;
   margin-top: 0.618rem;
+}
+
+.c-ButtonInIndex {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 0.618rem;
 }
 
 .c-SongsList {

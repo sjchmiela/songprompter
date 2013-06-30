@@ -1,6 +1,6 @@
 <% content_for :title do %>Lista wydarzeń<% end %>
 
-<h1>Lista wydarzeń</h1>
+<h1>Lista wydarzeń <%= link_to "Nowe wydarzenie", new_event_path, class: "c-Button c-Button-Small c-Button-InH1 c-Button-add" %></h1>
 
 <% events.each do |event| %>
   <% if event.date %>

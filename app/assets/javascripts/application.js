@@ -47,7 +47,13 @@ function addVerseBlock() {
       <label class="c-SectionTagline" for="verse'+new_index+'-label">Zwrotka '+new_index+'</label>\
       <div id="chorus" class="js-verse c-InputVerse" contenteditable></div>\
     </div>';
-  $(".js-VerseBlock").last().after(toAppend);
+  if($(".js-VerseBlock").length == 0) {
+    $("#js-chorus").after(toAppend);
+  }
+  else {
+    $(".js-VerseBlock").last().after(toAppend);
+  }
+  
 }
 
 function watchVerseBlocksForAdding() {
