@@ -18,9 +18,9 @@
     <li><button type="button" class="c-RemoveSongButton" title="Usuń piosenkę z listy" onclick="javascript:removeSong(this, '<%= es.song.id %>', '<%= es.song.name %>')">Usuń piosenkę z listy</button><%= hidden_field_tag "event_songs[#{es.song.id}]", "present" %><%= es.song.name %></li>
   <% end %>
   </ul>
-<div class="c-Card">
+<div class="c-Card c-Card-NoHoverChange">
 <%= select_tag "song", options_from_collection_for_select(songs, "id", "name"), :prompt => "Wybierz piosenkę" %>
-    <button type="button" onclick="addSongToList()">+</button>
+    <button type="button" class="c-Button c-Button-Smaller c-Button-add u-FloatRight" onclick="addSongToList()">+</button>
 </div>
 <button class="c-Card c-CardButton u-MarginTop">Zapisz</button>
 <% end %>

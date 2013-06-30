@@ -61,6 +61,16 @@
     height: 2.618rem;
   }
 }
+.c-Button-Smaller {
+  width: 1.618rem;
+  height: 1.618rem;
+  &:before {
+    font-size: 1rem;
+    line-height: 1.618rem;
+    width: 1.618rem;
+    height: 1.618rem;
+  }
+}
 
 .c-Button-add::before {
   content: "＋";
@@ -115,6 +125,17 @@
   box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.2);
 }
 
+.c-Button-Smaller:active::after {
+  height: 1.618rem;
+  width: 1.618rem;
+  left: -1px;
+  top: -1px;
+  background: rgba(0,0,0,0.15);
+  -webkit-box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.2);
+}
+
 .c-Card {
   display: block;
   width: 100%;
@@ -128,8 +149,10 @@
   color: #000;
   background: #fff;
   &:last-child { margin-bottom: 0; }
-  &:hover { border-bottom: 1px solid #999; background: #efefef; @include transition-all-hover;}
+  &:hover { background: #efefef; @include transition-all-hover;}
 }
+
+.c-Card-NoHoverChange:hover { background: #fff; }
 
 .c-CardButton {
   text-transform: uppercase;
