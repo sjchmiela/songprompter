@@ -41,8 +41,13 @@ body {
   text-decoration: none;
 }
 
-.l-Content p a:hover, .l-Content li a:hover {
-  border-bottom: 1px solid #000;
+.l-Content p a, .l-Content li a {
+  color: #999;
+  border-bottom: 1px dashed #999;
+  &:hover {
+    color: #000;
+    border-bottom: 1px solid #000;
+  }
 }
 
 .l-Content li { line-height: 1.6rem;}
