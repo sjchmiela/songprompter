@@ -29,7 +29,7 @@
 
 function removeSong(el, id, name) {
   $("#song").append("<option value='"+id+"'>"+name+"</option>");
-  var options = $('select option');
+  var options = $('select option:not(:first-child)');
   var arr = options.map(function(_, o) { return { t: $(o).text(), v: o.value }; }).get();
   arr.sort(function(o1, o2) { return o1.t > o2.t ? 1 : o1.t < o2.t ? -1 : 0; });
   options.each(function(i, o) {
@@ -38,15 +38,15 @@ function removeSong(el, id, name) {
   });
   $(el).parent().remove();
 }
-/*$("#songs").sortable({
+$("#songs").sortable({
   axis: 'y',
   appendTo: "parent",
   cursor: "move",
-  forcePlaceholderSize: true,
+  forcePlaceholderSize: false,
   opacity: 0.7,
   helper: "clone",
-  placeholder: "sortable-placeholder"
-});*/
+  placeholder: "js-sortable-placeholder"
+});
 
 function startAddingSongs() {
   $("#new-song").css("transform", "rotateX(90deg)");
@@ -62,7 +62,7 @@ function addSongToList()
   var id = $("option:selected").attr("value");
   var title = $("option:selected").text();
   $("option:selected").remove();
-  $("#songs").append("<li><input type='hidden' name='event_songs["+id+"]' value='present' id='event_songs_"+id+"' />"+title+"<button type='button' onclick='javascript:$(this).parent().remove()'>&times;</button></li>");
+  $("#songs").append('<li><button type="button" class="c-RemoveSongButton" title="Usuń piosenkę z listy" onclick="javascript:removeSong(this, \''+id+'\',\''+title+'\')">Usuń piosenkę z listy</button><input id="event_songs_'+id+'" name="event_songs['+id+']" type="hidden" value="present" />'+title+'</li>');
 }
 
 

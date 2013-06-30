@@ -13,6 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require jquery.ui.all
+//= require forms
 
 function newLines(text) {
   var lines = text.split("\n");

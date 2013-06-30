@@ -278,7 +278,6 @@
   border: 1px solid #999;
   width: 1rem;
   height: 1rem;
-  padding: 0;
   line-height: 1rem;
   text-indent: -999rem;
   color: #999;
@@ -286,7 +285,7 @@
   position: relative;
   margin-right: 0.618rem;
   display: inline-block;
-  top: 1px;
+  top: 2px;
   opacity: 0.4;
   &:before {
     content: '×';
@@ -296,8 +295,17 @@
     top: -0.15rem;
     left: 0.209rem;
     text-indent: 0;
+    opacity: 0;
+  }
+  &:hover::before {
+    opacity:1;
   }
   &:hover {
     opacity: 1;
   }
+}
+
+.js-sortable-placeholder {
+  border: 1px dashed black;
+  height: 1.45rem;
 }
