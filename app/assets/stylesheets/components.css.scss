@@ -23,7 +23,6 @@
   width: 5.836rem;
   height: 5.836rem;
   text-indent: -999em;
-  border-radius: 100%;
   font-size: 2.618rem;
   border: 1px solid #999;
   text-decoration: none;
@@ -34,7 +33,7 @@
     background: transparent;
     font-family: "icons", Georgia, sans-serif;
     text-rendering: geometricPresition;
-    border-radius: 100%;
+    border-radius: 50%;
     position: absolute;
     text-align: center;
     font-size: 2.618rem;
@@ -113,7 +112,7 @@ a.c-Button-add::before { text-indent: 0; }
   z-index: 1000;
   display: inline-block;
   background: rgba(0, 0, 0, 0.2);
-  border-radius: 100%;
+  border-radius: 50%;
   -webkit-box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.3);
   -moz-box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.3);
   box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.3);
@@ -165,6 +164,7 @@ a.c-Button-add::before { text-indent: 0; }
   color: #999;
   font-size: 0.825rem;
   font-weight: bold;
+  font-family: 'HelveticaNeue-Bold';
   &:hover {
     color: #666;
   }
@@ -187,10 +187,12 @@ a.c-Button-add::before { text-indent: 0; }
   line-height: 3.607rem;
   margin-top: 3.607rem;
   margin-bottom: 3.607rem;
+  font-family: 'HelveticaNeue-UltraLight';
 }
 
 .c-AdditionalInfo {
   font-weight: bold;
+  font-family: 'HelveticaNeue-Bold';
   font-size: 0.825rem;
   line-height: 0.825rem;
   color: #999;
@@ -199,6 +201,7 @@ a.c-Button-add::before { text-indent: 0; }
 
 .c-InputName {
   font-weight: 300;
+  font-family: 'HelveticaNeue-Light';
   font-size: 2.16rem;
   margin: 0.618rem 0 0.5rem;
   padding: 0;
@@ -257,6 +260,7 @@ a.c-Button-add::before { text-indent: 0; }
   color: #999;
   text-transform: uppercase;
   font-weight: bold;
+  font-family: 'HelveticaNeue-Bold';
   text-align: center;
   width: 100%;
   display: block;
@@ -308,7 +312,7 @@ a.c-Button-add::before { text-indent: 0; }
 
 .c-RemoveSongButton {
   background: none;
-  border-radius: 100%;
+  border-radius: 50%;
   border: 1px solid #999;
   width: 1rem;
   height: 1rem;
@@ -342,4 +346,11 @@ a.c-Button-add::before { text-indent: 0; }
 .js-sortable-placeholder {
   border: 1px dashed black;
   height: 1.45rem;
+}
+
+@media screen and (max-width: 480px) {
+  .c-PageTitle {
+  margin-top: 1.618rem;
+  margin-bottom: 1.618rem;
+  }
 }
