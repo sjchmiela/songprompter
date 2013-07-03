@@ -75,9 +75,11 @@
   top: 0.618rem;
 }
 .c-Button-add::before {
-  content: "➕";
+  content: "＋";
+  font-weight: normal;
   color: #999;
   text-align: center;
+  line-height: 2.618rem;
   text-indent: -1px;
 }
 
