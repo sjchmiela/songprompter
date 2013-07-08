@@ -164,7 +164,7 @@ a.c-Button-add::before { text-indent: 0; }
   color: #999;
   font-size: 0.825rem;
   font-weight: bold;
-  font-family: 'HelveticaNeue-Bold', Helvetica Neue, Helvetica, Arial, Myriad Pro, sans-serif;
+  font-family: 'HelveticaNeue-Bold','HelveticaNeueBold', Helvetica Neue, Helvetica, Arial, Myriad Pro, sans-serif;
   &:hover {
     color: #666;
   }
@@ -187,12 +187,12 @@ a.c-Button-add::before { text-indent: 0; }
   line-height: 3.607rem;
   margin-top: 3.607rem;
   margin-bottom: 3.607rem;
-  font-family: 'HelveticaNeue-UltraLight', Helvetica Neue, Helvetica, Arial, Myriad Pro, sans-serif;
+  font-family: 'HelveticaNeue-UltraLight','HelveticaNeueUltraLight', Helvetica Neue, Helvetica, Arial, Myriad Pro, sans-serif;
 }
 
 .c-AdditionalInfo {
   font-weight: bold;
-  font-family: 'HelveticaNeue-Bold', Helvetica Neue, Helvetica, Arial, Myriad Pro, sans-serif;
+  font-family: 'HelveticaNeue-Bold','HelveticaNeueBold', Helvetica Neue, Helvetica, Arial, Myriad Pro, sans-serif;
   font-size: 0.825rem;
   line-height: 0.825rem;
   color: #999;
@@ -201,7 +201,7 @@ a.c-Button-add::before { text-indent: 0; }
 
 .c-InputName {
   font-weight: 300;
-  font-family: 'HelveticaNeue-Light', Helvetica Neue, Helvetica, Arial, Myriad Pro, sans-serif;
+  font-family: 'HelveticaNeue-Light','HelveticaNeueLight', Helvetica Neue, Helvetica, Arial, Myriad Pro, sans-serif;
   font-size: 2.16rem;
   margin: 0.618rem 0 0.5rem;
   padding: 0;
@@ -260,7 +260,7 @@ a.c-Button-add::before { text-indent: 0; }
   color: #999;
   text-transform: uppercase;
   font-weight: bold;
-  font-family: 'HelveticaNeue-Bold', Helvetica Neue, Helvetica, Arial, Myriad Pro, sans-serif;
+  font-family: 'HelveticaNeue-Bold','HelveticaNeueBold', Helvetica Neue, Helvetica, Arial, Myriad Pro, sans-serif;
   text-align: center;
   width: 100%;
   display: block;
